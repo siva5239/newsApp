@@ -26,10 +26,14 @@
                 "input": "public"
               }
             ],
-            "styles": [
+            "styles": [ 
+             "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
-            "scripts": [],
+            "scripts": [
+                "./node_modules/jquery/dist/jquery.min.js",
+                "./node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ],
             "server": "src/main.server.ts",
             "prerender": true,
             "ssr": {
@@ -97,5 +101,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "7feac3eb-d62d-48f9-aa1a-e2e92f0b4caa"
   }
 }

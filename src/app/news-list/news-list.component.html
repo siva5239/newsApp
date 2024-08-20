@@ -1,0 +1,35 @@
+<div class="container mt-3">
+    <h2>News Listing</h2> 
+    <div class="row mb-3">
+      <div class="col-md-3">
+        <input [(ngModel)]="searchQuery" (input)="filterNews()" type="text" class="form-control" placeholder="Search news">
+      </div>
+      <div class="col-md-3">
+        <select [(ngModel)]="selectedCountry" (change)="filterNews()" class="form-select">
+          <option value="">Select Country</option>
+          <option *ngFor="let country of countries" [value]="country">{{ country }}</option>
+        </select>
+      </div>
+      <div class="col-md-3">
+        <input [(ngModel)]="fromDate" (ngModelChange)="filterByDate()" type="date" class="form-control" placeholder="From Date">
+      </div>
+      <div class="col-md-3">
+        <input [(ngModel)]="toDate" (ngModelChange)="filterByDate()" type="date" class="form-control" placeholder="To Date">
+      </div>
+    </div>
+    <div class="row">
+        <div  *ngFor="let news of newsData; let i = index" class="col-md-4 mb-3">
+           <div class="card">
+            <img [src]="news.urlToImage" class="card-img-top" alt="{{news.title}}" (click)="navigateToDetail(i)">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <a >{{ news.title }}</a>
+                  </h5>
+                  <p class="card-text">{{ news.description }}</p>
+                <p class="card-text"><small class="text-muted">AuthorName:<b>{{ news.author }}</b></small></p>
+            </div>
+           </div>
+        </div>
+        
+    </div>
+</div>
